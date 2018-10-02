@@ -19,7 +19,7 @@ function setup() {
   //var col = color(random(255), random(255), random(255))
   //var boid = (new Boid (v1, v2,rad, col))
 
-  //loadBoids(150);
+  loadBoids(150);
 
 }
 
@@ -29,7 +29,10 @@ function draw() {
   background(50, 0, 50);
   for (var i = 0; i < boids.length; i++){
     boids[i].run();
+
   }
+chaser.run();
+
 }
 
 
@@ -37,11 +40,11 @@ function loadBoids (numboids){
   for (var i = 0; i < numboids; i++){
     var loc = createVector(random(width), random(height));
     var vel = createVector(random(-2,2), random(-2,2));
-    var col = color(random(255), random(255), random(255))
+    var col = color(random(255), random(255), random(255));
 
 	boids.push(new Boid (loc, vel, col));
   }
-  cosole.log (boids);
+  console.log (boids);
 
 
 }
@@ -51,9 +54,8 @@ function loadBoids (numboids){
 
 
 //boids.splice(i, 1)// remove one element at index i
-}
-function loadChaser(){
-  console.log (chaser)
 
-}
+function loadChaser(){
+  console.log (chaser);
+
 }

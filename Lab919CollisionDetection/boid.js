@@ -23,26 +23,26 @@ function Boid(location, velocity, radius, col){
     this.update();
     this.render();
   }
-  // changes the location of the ball
+  // changes the location of the boid
   //  adds speed to x and y
   this.update = function(){
-    if (this!== boid){
-      var d = this.loc.dist(boid.loc)
+  //  if (this!== boid){
+      var d = this.loc.dist(this.loc)
       if (d <450){
-        var steeringForce = p5.Vector.sub(this.loc,boid.loc);
+        var steeringForce = p5.Vector.sub(this.loc,this.loc);
         steeringForce.normalize();  //  changes the magnitud to 1
         steeringForce.mult(0.5);    //  scales the magnitude to 0.9
         this.vel.add(steeringForce);
       }
       if (d < 80){
-        var repForce = p5.Vector.sub(boid.loc, this.loc);
+        var repForce = p5.Vector.sub(this.loc, this.loc);
         repForce.normalize();
         repForce.mult(0.05);
         this.vel.add(this.repForce)
       }
       //this.vel.limit (3);
       this.loc.add(this.vel)
-    }
+
 
 
 
