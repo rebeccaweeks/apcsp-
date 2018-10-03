@@ -2,20 +2,14 @@
 // becca weeks
 
 
-function Boid(location, velocity, radius, col){
+function Boid(location, velocity, radius, col,){ //defining boid
   this.loc = location;
   this.vel = velocity;
   this.acc = createVector(0,.1);
   this.rad = radius;
   this.col = col;
 
-  //function Ball(location, velocity, radius, col){
-  //  this.loc = location;
-  //this.vel = velocity;
-  //this.acc = createVector(0,.1);
-  //this.rad = radius;
-  //this.col = col;
-
+ 
 
   // This function calls other functions
   this.run = function(){
@@ -23,9 +17,9 @@ function Boid(location, velocity, radius, col){
     this.update();
     this.render();
   }
-  // changes the location of the boid
+  // changes the location of the boid //
   //  adds speed to x and y
-  this.update = function(){
+  this.update = function(){ //attraction
   //  if (this!== boid){
       var d = this.loc.dist(this.loc)
       if (d <450){
@@ -62,14 +56,17 @@ function Boid(location, velocity, radius, col){
     push() // push or save the current coord system into the stack
     translate(this.loc.x, this.loc.y);
     rotate(PI/4);
-    triangle(-5, 0, 5, 0, 0, -15);
+    triangle(-5, 0, 5, 0, 0, -15); //draws boids
     pop()
   }
 
   //  pop or restore the coordianate system from the stack
-  //= `` loc of mouse = loc of ball vv
- //if (this.loc.x == this.mouseX && this.loc.y == this.mouseY){
-
+  for (var i = 0; i <boids.length; i++){
+  var d = this.loc.dist(this.loc)
+   if (d < 50){
+     boids.splice(i, 1)
+   }
+     
 
   //  boids.splice(i, 1)// remove one element at index i
 //}
