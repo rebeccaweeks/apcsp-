@@ -20,6 +20,7 @@
   //  adds speed to x and y
    this.update = function(){
 	   if (this!== ball){
+       //  find distance between this and ball
        var d = this.loc.dist(ball.loc)
    	   if (d <450){
    		   var steeringForce = p5.Vector.sub(this.loc,ball.loc);

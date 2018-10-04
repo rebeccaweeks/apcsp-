@@ -56,6 +56,6 @@ function loadBoids (numboids){
 //boids.splice(i, 1)// remove one element at index i
 
 function loadChaser(){
-  console.log (chaser);
+console.log (chaser);
 
 }

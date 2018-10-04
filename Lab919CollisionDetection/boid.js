@@ -8,11 +8,12 @@ function Boid(location, velocity, radius, col,){ //defining boid
   this.acc = createVector(0,.1);
   this.rad = radius;
   this.col = col;
+  this.isDead = false;
 
- 
+
 
   // This function calls other functions
-  this.run = function(){
+  this.run = function(){ //FUNCTIONS to run all boids
     this.checkEdges();
     this.update();
     this.render();
@@ -28,14 +29,27 @@ function Boid(location, velocity, radius, col,){ //defining boid
         steeringForce.mult(0.5);    //  scales the magnitude to 0.9
         this.vel.add(steeringForce);
       }
-      if (d < 80){
+      if (d < 80){ //repel
         var repForce = p5.Vector.sub(this.loc, this.loc);
         repForce.normalize();
-        repForce.mult(0.05);
+        repForce.mult(0.08);
         this.vel.add(this.repForce)
       }
-      //this.vel.limit (3);
-      this.loc.add(this.vel)
+
+
+      for (var i= 0; i <boids.length; i++){
+        var x= boids[i];
+        var y = chaser.loc;
+        var z = x.loc;
+
+      var d = y.dist(z) //boid chaser to ball
+       if (d < 50){
+         boids.splice(i,1);
+
+       }
+     }
+
+  this.loc.add(this.vel)
 
 
 
@@ -55,19 +69,19 @@ function Boid(location, velocity, radius, col,){ //defining boid
   this.render = function(){
     push() // push or save the current coord system into the stack
     translate(this.loc.x, this.loc.y);
-    rotate(PI/4);
+    rotate(this.vel.heading () + radians (90));
     triangle(-5, 0, 5, 0, 0, -15); //draws boids
     pop()
   }
 
   //  pop or restore the coordianate system from the stack
-  for (var i = 0; i <boids.length; i++){
-  var d = this.loc.dist(this.loc)
-   if (d < 50){
-     boids.splice(i, 1)
-   }
-     
+//  for (var i = 0; i <boids.length; i++){ //SPLICING DEAD BOIDS
+//  var d = this.loc.dist(this.loc)
+// if (d < 50){
+  //   boids.splice(i, 1)
+   //}
+
 
   //  boids.splice(i, 1)// remove one element at index i
-//}
+
 }
