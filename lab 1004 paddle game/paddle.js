@@ -3,7 +3,7 @@
 
 
 //Create a constructor function for the paddle object.   What parameters should this take?
-  function Paddle (location,velocity)
+  function Paddle (location,velocity,col){
   this.loc = location;
   this.vel = velocity;
   this.col = col;
@@ -21,30 +21,8 @@
   // changes the location of the boid //
   //  adds speed to x and y
   this.update = function(){ //attraction
-  //  if (this!== boid){
-      var d = this.loc.dist(this.loc)
-      if (d <450){
-        var steeringForce = p5.Vector.sub(this.loc,this.loc);
-        steeringForce.normalize();  //  changes the magnitud to 1
-        steeringForce.mult(0.5);    //  scales the magnitude to 0.9
-        this.vel.add(steeringForce);
-      }
-      if (d < 80){ //repel
-        var repForce = p5.Vector.sub(this.loc, this.loc);
-        repForce.normalize();
-        repForce.mult(0.08);
-        this.vel.add(this.repForce)
-      }
 
 
-      for (var i= 0; i <boids.length; i++){
-        var x= boids[i];
-        var y = chaser.loc;
-        var z = x.loc;
-
-      var d = y.dist(z) //boid chaser to ball
-       if (d < 50){
-         boids.splice(i,1);
 
        }
      }
@@ -65,13 +43,25 @@
     if(this.loc.y > height) this.vel.y = -this.vel.y;
   }
 
-  // render() draws the boidat  new location
+  // render() draws the ball dat  new location
   this.render = function(){
-    push() // push or save the current coord system into the stack
-    translate(this.loc.x, this.loc.y);
-    rotate(this.vel.heading () + radians (90));
-    triangle(-5, 0, 5, 0, 0, -15); //draws boids
-    pop()
+  //  push() // push or save the current coord system into the stack
+    ///translate(this.loc.x, this.loc.y);
+    //rotate(this.vel.heading () + radians (90));
+    //triangle(-5, 0, 5, 0, 0, -15); //draws boids
+    //pop()
+
+    //draw paddle
+    fill(this.col);
+    rect(this.loc);
+  }
+
+
+    this.update = function(){ // paddle only moves along x
+      // lerp(start, stop, amt)
+      var mouseLoc = createVector(mouseX,mouseY );
+
+ this.loc = p5.Vector.lerp(this.loc.x, mouseLoc.x, .09)
   }
 
   //  pop or restore the coordianate system from the stack

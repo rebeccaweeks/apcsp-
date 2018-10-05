@@ -13,9 +13,9 @@
 //Each new round begins with a greater number of balls
 
 
-var boid;
-var boids = [];
-var chaser;
+//var boid;
+var balls = [];
+//var chaser;
 var mouseLoc;
 
 
@@ -23,7 +23,7 @@ function setup() {
   var cnv = createCanvas(1200, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(50, 0, 50);
-  chaser = new Ball (createVector (width/2,height/2), createVector (0,0), 65, color(255));
+  paddle = new Paddle (createVector (width/2,height/2), createVector (0,0), 65, color(255));
 //  var v1 = createVector(random(width), random(height));
 //  var v2 = createVector(random(-2,2), random(-2,2));
 //  var rad = random(15, 35)
@@ -37,9 +37,9 @@ function setup() {
 //  The draw function is called @ 30 fps
 function draw() {
 
-//  background(50, 0, 50);
-//  for (var i = 0; i < boids.length; i++){
-  //  boids[i].run();
+ background(50, 0, 50);
+for (var i = 0; i < boids.length; i++){
+  balls[i].run();
 
   }
 //chaser.run();
@@ -68,4 +68,4 @@ function loadBalls (numBalls){
 //function loadChaser(){
 //console.log (chaser);
 
-}
+//}

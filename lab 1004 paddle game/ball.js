@@ -4,7 +4,7 @@
 
  function Ball(location, velocity, col){
    this.loc = location;
-    this.vel = velocity;
+  this.vel = velocity;
    this.acc = createVector(0,.1);
     this.rad = radius;
     this.col = col;
@@ -24,9 +24,9 @@
   //  adds speed to x and y
    this.update = function(){
 	   // lerp(start, stop, amt)
-     var mouseLoc = createVector(mouseX, mouseY);
+     //var mouseLoc = createVector(mouseX, mouseY);
 
-this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09)
+//this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09)
 
      }
 
