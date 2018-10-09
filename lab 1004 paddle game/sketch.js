@@ -23,14 +23,14 @@ function setup() {
   var cnv = createCanvas(1200, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(50, 0, 50);
-  paddle = new Paddle (createVector (width/2,height/2), createVector (0,0), 65, color(255));
+  paddle = new Paddle (createVector (width/2,height/2), createVector (0,0), 65, color(255,0,255));
 //  var v1 = createVector(random(width), random(height));
 //  var v2 = createVector(random(-2,2), random(-2,2));
 //  var rad = random(15, 35)
   //var col = color(random(255), random(255), random(255))
   //var boid = (new Boid (v1, v2,rad, col))
 
-  //loadBoids(150);
+  loadBalls(150);
 
 }
 
@@ -38,7 +38,7 @@ function setup() {
 function draw() {
 
  background(50, 0, 50);
-for (var i = 0; i < boids.length; i++){
+for (var i = 0; i < balls.length; i++){
   balls[i].run();
 
   }
@@ -65,7 +65,6 @@ function loadBalls (numBalls){
 
 //boids.splice(i, 1)// remove one element at index i
 
-//function loadChaser(){
-//console.log (chaser);
+
 
 //}

@@ -8,12 +8,12 @@
   this.vel = velocity;
   this.col = col;
 
-  this.isDead = false;
+
 
 
 
   // This function calls other functions
-  this.run = function(){ //FUNCTIONS to run all boids
+  this.run = function(){ //FUNCTIONS to run all
     this.checkEdges();
     this.update();
     this.render();
@@ -23,17 +23,8 @@
   this.update = function(){ //attraction
 
 
-
-       }
-     }
-
-  this.loc.add(this.vel)
-
-
-
-
-
-  }
+      this.loc.add(this.vel)
+    }
 
   //checkEdges() reverses speed when  boidtouches an edge
   this.checkEdges = function(){
@@ -45,11 +36,9 @@
 
   // render() draws the ball dat  new location
   this.render = function(){
-  //  push() // push or save the current coord system into the stack
-    ///translate(this.loc.x, this.loc.y);
-    //rotate(this.vel.heading () + radians (90));
-    //triangle(-5, 0, 5, 0, 0, -15); //draws boids
-    //pop()
+
+    rect(50,50,20,20); //draws a rectangle
+
 
     //draw paddle
     fill(this.col);
@@ -73,5 +62,4 @@
 
 
   //  boids.splice(i, 1)// remove one element at index i
-
 }

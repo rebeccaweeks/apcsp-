@@ -2,12 +2,13 @@
 // becca weeks
 
 
- function Ball(location, velocity, col){
+ function Ball(location, velocity, col,radius){
    this.loc = location;
   this.vel = velocity;
-   this.acc = createVector(0,.1);
-    this.rad = radius;
-    this.col = col;
+  this.acc = createVector(0,.1);
+  this.col = col;
+  this.rad = radius;
+
 
 
 
