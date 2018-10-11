@@ -17,54 +17,47 @@
 var balls = [];
 //var chaser;
 var mouseLoc;
-
+var paddle ;
 
 function setup() {
   var cnv = createCanvas(1200, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(50, 0, 50);
-  paddle = new Paddle (createVector (width/2,height/2), createVector (0,0), 65, color(255,0,255));
-//  var v1 = createVector(random(width), random(height));
-//  var v2 = createVector(random(-2,2), random(-2,2));
-//  var rad = random(15, 35)
-  //var col = color(random(255), random(255), random(255))
-  //var boid = (new Boid (v1, v2,rad, col))
+  paddle = new Paddle (createVector (width/2,height/2), createVector (0,0), 65,46, color(255,0,255));
 
-  loadBalls(150);
-
+   loadBalls(15);
 }
+
+
+function loadBalls (numBalls){
+  for (var i = 0; i < numBalls; i++){
+    var loc = createVector(random(100,600), 20);
+    var vel = createVector(random(-2,2), random(-2,2));
+    var rad = 25;
+    var col = color(random(0,255), random(0,255), random(0,255));
+	var ball = (new Ball (loc, vel,rad, col))
+	balls.push(ball);
+  }
+}
+
+
 
 //  The draw function is called @ 30 fps
 function draw() {
-
- background(50, 0, 50);
+background(20,20,20);
+noStroke ();
+paddle.run ();
 for (var i = 0; i < balls.length; i++){
   balls[i].run();
-
+  //balls bounce
+  var ballA = balls[i];
+  var y = ballA.loc.y;
+  var x = ballA.loc.x
+  //distance bt pad and ball
+  var distY = abs (paddle.loc.y- y);
+  //distance of paddle ends
+  if ((distY <2) && (x>paddle.loc.x) && (x<paddle.loc.x+250)){
+    ballA.vel.y = -ballA.vel.y
   }
-//chaser.run();
-
 }
-// Load an array with Ball objects
-function loadBalls (numBalls){
-  for (var i = 0; i < numBalls; i++){
-    var v1 = createVector(random(width), random(height));
-    var v2 = createVector(random(-2,2), random(-2,2));
-    var rad = random(15, 35)
-    var col = color(random(255), random(255), random(255))
-	var ball = (new Ball (v1, v2,rad, col))
-	balls.push(new Ball (v1, v2,rad, col));
-  }
-
-
 }
-//  pop or restore the coordianate system from the stack
-//= `` loc of mouse = loc of ball vv
-//if ( mouseLoc. equals (this.loc.x, this.loc.y){
-
-
-//boids.splice(i, 1)// remove one element at index i
-
-
-
-//}
