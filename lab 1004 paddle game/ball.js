@@ -21,8 +21,8 @@
   // changes the location of the ball
   //  adds speed to x and y
    this.update = function(){
-     this.vel.add(this.loc);
-     this.vel.add(this.vel);
+     this.loc.add(this.vel);
+     this.vel.add(this.acc);
      this.loc.mag();
      }
 
