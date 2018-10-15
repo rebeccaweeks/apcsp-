@@ -23,13 +23,13 @@ function setup() {
   var cnv = createCanvas(1200, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(50, 0, 50);
-  paddle = new Paddle (createVector (width/2,height/2), createVector (-.1,.1), 65,46, color(255,0,255));
+  paddle = new Paddle (createVector (width/2,height/2), createVector (-.1,.1), 95,35, color(255,0,255)); //creates paddle
 
    loadBalls(15);
 }
 
 
-function loadBalls (numBalls){
+function loadBalls (numBalls){ // loads all the balls in the array and create new ball objects for the array
   for (var i = 0; i < numBalls; i++){
     var loc = createVector(random(100,600), 20);
     var vel = createVector(random(-2,2), random(-2,2));
@@ -59,8 +59,13 @@ for (var i = 0; i < balls.length; i++){
   if ((distY <2) && (x>paddle.loc.x) && (x<paddle.loc.x+250)){
     ballA.vel.y = -ballA.vel.y;
     var lowerEdge = paddle.loc.y + paddle.l ;//lower left paddle y coord value
-    var rEdge = paddle.loc.x + paddle.w ; //right edge
-    if (ballA.loc.x > rEdge && ballA.loc.y <lowerEdge){ //fix to find if ball a is between avalue and a value and if y is between something and something. finishtest
+    var upperEdge = paddle.loc.y //upper paddle value
+    var  lEdge =paddle.loc.x ; // paddle left edge x value
+    var rEdge = paddle.loc.x + paddle.w ; //right edge x value
+
+    if (x > lEdge && x < rEdge &&  y <lowerEdge &&  y > upperEdge){
+      //fix to find if ball a is between avalue and a value and if y is between something and something.
+      balls.splice(i,1);
 
     } // boundaries
   }
