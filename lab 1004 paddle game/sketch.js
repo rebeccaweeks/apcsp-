@@ -35,9 +35,10 @@ function loadBalls (numBalls){ // loads all the balls in the array and create ne
     var vel = createVector(random(-2,2), random(-2,2));
     var rad = 25;
     var col = color(random(0,255), random(0,255), random(0,255));
-	var ball = new Ball (loc, vel,rad, col)
+	var ball = new Ball (loc, vel,rad, col);
 	balls.push(ball);
   }
+
 }
 
 
@@ -56,8 +57,8 @@ for (var i = 0; i < balls.length; i++){
   //distance bt pad and ball
   var distY = abs (paddle.loc.y- y);
   //distance of paddle ends
-  if ((distY <2) && (x>paddle.loc.x) && (x<paddle.loc.x+250)){
-    ballA.vel.y = -ballA.vel.y;
+//  if ((distY <2) && (x>paddle.loc.x) && (x<paddle.loc.x+250)){ // allows ball to bounce off of paddle but we dont want this
+  //  ballA.vel.y = -ballA.vel.y;
     var lowerEdge = paddle.loc.y + paddle.l ;//lower left paddle y coord value
     var upperEdge = paddle.loc.y //upper paddle value
     var  lEdge =paddle.loc.x ; // paddle left edge x value
@@ -68,6 +69,6 @@ for (var i = 0; i < balls.length; i++){
       balls.splice(i,1);
 
     } // boundaries
-  }
+//  }
 }
 }
