@@ -64,9 +64,10 @@ for (var i = 0; i < balls.length; i++){
     var  lEdge =paddle.loc.x ; // paddle left edge x value
     var rEdge = paddle.loc.x + paddle.w ; //right edge x value
 
-    if (x > lEdge && x < rEdge &&  y <lowerEdge &&  y > upperEdge){
+    if (x > lEdge && x < rEdge &&  y <lowerEdge &&  y > upperEdge ){
       //fix to find if ball a is between avalue and a value and if y is between something and something.
       balls.splice(i,1);
+      
 
     } // boundaries
 //  }
