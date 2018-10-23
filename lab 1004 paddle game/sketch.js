@@ -47,7 +47,7 @@ function loadBalls (numBalls){ // loads all the balls in the array and create ne
 //  The draw function is called @ 30 fps
 function draw() {
 background(20,20,20);
-text ("your score is: " + score, 50,50)
+text ("your score is: " + score, 50,50) 
 noStroke ();
 paddle.run ();
 for (var i = 0; i < balls.length; i++){

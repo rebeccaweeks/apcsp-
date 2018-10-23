@@ -1,0 +1,7 @@
+
+cat
+dog
+hat
+computer
+zebra
+giraffe
