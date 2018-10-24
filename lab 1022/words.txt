@@ -1,7 +1,7 @@
-
+panda
 cat
 dog
-hat
-computer
+horse
+cow
 zebra
 giraffe
