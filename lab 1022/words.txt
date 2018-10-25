@@ -5,3 +5,8 @@ horse
 cow
 zebra
 giraffe
+bernese mountain dog
+chinstrap penguin
+grizzly bear
+swan
+puss moth
