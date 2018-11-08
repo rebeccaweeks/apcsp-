@@ -1,20 +1,29 @@
 
-var data;
+var data = [];
 var barHeight;
 //  preload a large file
-function preload(){
-  data = loadJSON("bigbangtheory.json");
-}
+//function preload(){
+//  data = loadJSON("population.json");
+//}
 function setup(){
-   data.bigbangtheory[3].feature
+  console.log("setting up");
+  loadJSON("population.json",getData);
+  bubbleSort (data);
+}
+function getData(jData){
+  console.log("got data");
+  data = jData;
+
 }
 
-//  The setup function function is called once when your program begins
-function setup() {
-  console.log
 
+function draw (){
+if (data){
+  data.population[3].females
+    console.log (data);
+}
+}
 
-    }
 
     function bubbleSort (){
       for (var i = 0; i<data.length; i++){
