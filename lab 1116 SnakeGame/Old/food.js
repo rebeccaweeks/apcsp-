@@ -10,7 +10,8 @@ function setup() {
 }
 
 
-
+//location
+//  plcae food randomly on canvas BUT NOT ON SAME CELL AS SNAKE
 //  The draw function is called @ 30 fps
 function draw() {
 
