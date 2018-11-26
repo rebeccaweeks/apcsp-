@@ -14,13 +14,15 @@ function setup() {
   frameRate(8)
   background(50, 0, 50);
   snake = new Snake(createVector(width/2, height/2), createVector(0, 0));
-
+  food = new Food(createVector(width/2+100, height/2), createVector(0, 0));
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
   background(50, 0, 50);
   snake.run();
+  food.run ();
+  //checkSegment();
 }
 
 function keyPressed(){
@@ -34,7 +36,6 @@ function keyPressed(){
    }else if(keyCode === LEFT_ARROW){
      snake.vel = createVector(-w, 0);
    }
-
 
 
 }
