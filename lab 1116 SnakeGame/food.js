@@ -3,7 +3,8 @@
 
 var randInt = Math.random (0,400);
  function Food(location,){
-    this.loc = location;
+   this.loc = location;
+    this.loc = createVector(randInt,randInt);
 
 
   // This function calls other functions

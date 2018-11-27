@@ -6,6 +6,7 @@
 var w = 20;
 var snake;
 var row, col;
+var randInt = Math.random (0,400);
 
 
 function setup() {
@@ -14,7 +15,7 @@ function setup() {
   frameRate(8)
   background(50, 0, 50);
   snake = new Snake(createVector(width/2, height/2), createVector(0, 0));
-  food = new Food(createVector(width/2+100, height/2), createVector(0, 0));
+  food = new Food(createVector(width/2 + (randInt)), height/2), createVector(0, (randInt));
 }
 
 //  The draw function is called @ 30 fps
