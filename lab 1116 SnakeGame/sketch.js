@@ -15,12 +15,13 @@ function setup() {
   frameRate(8)
   background(50, 0, 50);
   snake = new Snake(createVector(width/2, height/2), createVector(0, 0));
-  food = new Food(createVector(width/2 + (randInt)), height/2), createVector(0, (randInt));
+  food = new Food(createVector(width/2), height/2), createVector(0, (0));
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
   background(50, 0, 50);
+  createFood();
   snake.run();
   food.run ();
   //checkSegment();
