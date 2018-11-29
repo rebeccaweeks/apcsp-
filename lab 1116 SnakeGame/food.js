@@ -39,8 +39,8 @@
 
         //Look at the position of the snake's body.
         for (var i=0; i>segment.length; i++) {
-            var snakeX = segment[i].x;
-            var snakeY = segment[i].y;
+            var snakeX = Snake.segment[i].x;
+            var snakeY = Snake.segment[i].y;
 
              if (food.x===snakeX || food.y === snakeY || food.y === snakeY && food.x===snakeX) {
                 food.x = Math.floor((Math.random() * 20) + 1);
